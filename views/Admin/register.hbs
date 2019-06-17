@@ -1,0 +1,71 @@
+<script>
+    $(document).on('click','#btnSignUp',function (e) {
+        e.preventDefault();
+        var name=document.getElementById("name");
+        name=name.value;
+        var email=document.getElementById("email");
+        email=email.value;
+        var password=document.getElementById("password");
+        password=password.value;
+        var number=document.getElementById("number");
+        number=number.value;
+        var passData={name:name,email:email,password:password,number:number};
+        alert("Hello");
+        $.ajax({
+            url:"/registerAjax",
+            method: "post",
+            cache: false,
+            data:passData,
+            success:function (data) {
+                if(data.success && data.msg!=null){
+                    alert("MSG: "+data.msg);
+                    $('#lblError').text(data.msg+" !!");
+                }
+                else if(data.success && data.msg==null){
+                    window.location.replace('/');
+                }
+            },
+            error:function (data) {
+                alert("MSG: "+data);
+                $('#lblError').text("Error in AJAX !!");
+            }
+        });
+    });
+</script>
+
+
+
+
+<section id="content">
+    <div class="main padder">
+        <div class="row">
+            <div class="col-lg-4 col-lg-offset-4 m-t-large">
+                <section class="panel">
+                    <header class="panel-heading text-center"> Sign up</header>
+                    <form action="post" class="panel-body" autocomplete="off">
+                        <div class="text-danger">
+                            <label id="lblError"></label>
+                        </div>
+                        <div class="block">
+                            <label class="control-label">Type Admin Name</label>
+                            <input type="text" placeholder="eg. Your name" id="name" class="form-control">
+                        </div>
+                        <div class="block">
+                            <label class="control-label">Your email address</label>
+                            <input type="email" placeholder="test@example.com" id="email" class="form-control">
+                        </div>
+                        <div class="block">
+                            <label class="control-label">Type a password</label>
+                            <input type="password" id="password" placeholder="Password" class="form-control">
+                        </div>
+                        <div class="block">
+                            <label class="control-label">Type a Mobile Number</label>
+                            <input type="number" id="number" placeholder="Mobile Number" class="form-control">
+                        </div>
+                        <button type="submit" id="btnSignUp" class="btn btn-info">Sign up</button>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </div>
+</section> <!-- footer -->

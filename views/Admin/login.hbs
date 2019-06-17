@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Mirrored from flatfull.com/themes/first/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 06 Feb 2019 15:57:37 GMT -->
+
+<head>
+<meta content="application/json">
+</head>
+<body>
+<script>
+    $(document).ready(function () {
+
+        //window.history.forward();
+        // function noBack() { window.history.forward(); }
+        // $('#body').onload(function () {
+        //     alert('body loaded');
+        //     noBack();
+        // });
+        // function disableBack() {
+        //     window.history.forward()
+        // }
+        //
+        // window.onload = disableBack();
+        // window.onpageshow = function (evt) {
+        //     if (evt.persisted) disableBack();
+        // }
+        //alert('hi');
+        $(document).on('click', '#btnSignIn', function (e) {
+            e.preventDefault();
+            var email = document.getElementById("email");
+            email = email.value;
+            var password = document.getElementById("password");
+            password = password.value;
+            alert("Button click called: Email: " + email + " Password: " + password);
+            $.ajax({
+                url: "/loginAjax",
+                cache: false,
+                method: "post",
+                data: {email: email, password: password},
+                success: function (data) {
+                    // alert('Hello');
+                    if (data.success && data.msg != null) {
+                        // alert("MSG: " + data.msg);
+                        if (data.msg == "Institute") {
+                            window.location.replace('/institute/home');
+                        }
+                        else if (data.msg == "Admin") {
+                            window.location.replace('/dashboard');
+                        }
+                        else
+                            $('#lblError').text(data.msg + " !!");
+                    }
+                    // else if (data.success && data.msg == null) {
+                    //      window.location.replace('/dashboard');
+                    //      window.location.replace('/institute/home');
+                    // }
+                    //alert("Success:Id "+data.sessionData);
+
+                },
+                error: function (data) {
+                    alert("Error in data : " + data.msg);
+                    // window.location.reload();
+                    $('#lblError').text("Technical error !!" + data.msg);
+                }
+            });
+        });
+    });
+
+</script>
+<section id="content">
+    <div class="main padder">
+        <div class="row">
+            <div class="col-lg-4 col-lg-offset-4 m-t-large">
+                <section class="panel">
+                    <header class="panel-heading text-center">Sign in</header>
+                    <form action="" class="panel-body" autocomplete="off">
+                        <div class="text-danger">
+                            <label id="lblError"></label>
+                        </div>
+                        <div class="block">
+                            <label class="control-label">Email</label>
+                            <input type="email" placeholder="test@example.com" id="email" class="form-control">
+                        </div>
+                        <div class="block">
+                            <label class="control-label">Password</label>
+                            <input type="password" id="password" placeholder="Password" class="form-control">
+                        </div>
+                        <!--<a href="#" class="pull-right m-t-mini">-->
+                            <!--<small>Forgot password?</small>-->
+                        <!--</a>-->
+                        <button type="submit" class="btn btn-info" id="btnSignIn">Sign in</button>
+                        <!--<p class="text-muted text-center">-->
+                            <!--<small>Do not have an account?</small>-->
+                        <!--</p>-->
+                        <!--<a href="/register" class="btn btn-white btn-block">Create an account</a>-->
+                    </form>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+<!-- Mirrored from flatfull.com/themes/first/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 06 Feb 2019 15:57:46 GMT -->
+</html>

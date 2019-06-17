@@ -1,0 +1,162 @@
+<section id="content">
+    <section class="main padder">
+        <div class="clearfix"><h4></h4></div>
+        <div class="row">
+            <div class="col-lg-12">
+                <section class="panel">
+                    <header class="panel-heading"><i class="fa fa-table"></i> Game Orgnizedlist List</header>
+                    <div class="panel-body">
+                        <div class="row text-small">
+                            <a class="btn btn-sm btn-info" data-toggle="modal" id="callingModalForm"
+                               href="#gameOrganizeForm"
+                               style="margin-left: 10px;">
+                                <i class="fa fa-fw fa-plus"></i> New Game Organize
+                            </a>
+                        </div>
+                    </div>
+
+
+                    <div class="table-responsive">
+                        <table class="table table-striped b-t text-small" id="tblData">
+                            <thead>
+                            <tr>
+                                <th width="20">
+                                    <input type="checkbox">
+                                </th>
+                                <th class="th-sortable" data-toggle="class" style="text-align: center">Game Name
+
+                                </th>
+                                <th style="text-align: center">Year</th>
+                                <th style="text-align: center">Number Of Student</th>
+                                <th style="text-align: center">Gender</th>
+                                <th style="text-align: center">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+
+                            </tr>
+                            <!--<tr>-->
+                            <!--<td>-->
+                            <!--<input type="checkbox" name="post[]" value="3"></td> <td>Formasa</td> <td>8c</td> <td>Jul 22, 2013</td> <td> <a href="#" data-toggle="class"><i class="fa fa-check fa-lg text-success text-active"></i><i class="fa fa-times fa-lg text-danger text"></i></a> </td> </tr> <tr> <td><input type="checkbox" name="post[]" value="4"></td> <td>Avatar system</td> <td>15c</td> <td>Jul 15, 2013</td> <td> <a href="#" class="active" data-toggle="class"><i class="fa fa-check fa-lg text-success text-active"></i><i class="fa fa-times fa-lg text-danger text"></i></a> </td> </tr> <tr> <td><input type="checkbox" name="post[]" value="4"></td> <td>Throwdown</td> <td>4c</td> <td>Jul 11, 2013</td> <td> <a href="#" class="active" data-toggle="class"><i class="fa fa-check fa-lg text-success text-active"></i><i class="fa fa-times fa-lg text-danger text"></i></a> </td> </tr> <tr> <td><input type="checkbox" name="post[]" value="5"></td> <td>Idrawfast</td> <td>4c</td> <td>Jul 7, 2013</td> <td> <a href="#" class="active" data-toggle="class"><i class="fa fa-check fa-lg text-success text-active"></i><i class="fa fa-times fa-lg text-danger text"></i></a> </td> </tr> <tr> <td><input type="checkbox" name="post[]" value="6"></td> <td>Formasa</td> <td>8c</td> <td>Jul 3, 2013</td> <td> <a href="#" class="active" data-toggle="class"><i class="fa fa-check fa-lg text-success text-active"></i><i class="fa fa-times fa-lg text-danger text"></i></a> </td> </tr> <tr> <td><input type="checkbox" name="post[]" value="7"></td> <td>Avatar system </b></td> <td>15c</td> <td>Jul 2, 2013</td> <td> <a href="#" class="active" data-toggle="class"><i class="fa fa-check fa-lg text-success text-active"></i><i class="fa fa-times fa-lg text-danger text"></i></a> </td> </tr> <tr> <td><input type="checkbox" name="post[]" value="8"></td> <td>Videodown</td> <td>4c</td> <td>Jul 1, 2013</td> <td> <a href="#" class="active" data-toggle="class"><i class="fa fa-check fa-lg text-success text-active"></i><i class="fa fa-times fa-lg text-danger text"></i></a> </td> </tr> </tbody>-->
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+</section>
+
+
+<style>
+    .updateClass {
+
+    }
+
+    .deleteClass {
+
+    }
+
+    .scrollit {
+        overflow: scroll;
+        height: 10px;
+    }
+</style>
+<script src="/javascripts/Admin/js/AJAX/instituteGameOrganizedAjax.js"></script>
+<script src="/javascripts/Admin/js/Validation/instituteStudentTableGetValidation.js"></script>
+<div id="gameOrganizeForm" class="modal fade">
+    <form class="m-b-none" action="#" id="uploadFormForGameOrganize" >
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" id="btnFormModal" data-dismiss="modal"><i
+                            class="fa fa-times"></i></button>
+                    <h4 class="modal-title" id="myModalLabel">Game Organized</h4></div>
+
+                <div class="modal-body">
+                    <div class="text-danger">
+                        <label id="lblError"></label>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <label class="control-label">Game</label>
+                            <select name="gameName" id="gameName" class="form-control">
+
+                            </select>
+                        </div>
+                        <div class="col-md-5">
+                            <label class="control-label">Year</label>
+                            <select name="year" id="year" class="form-control">
+                                <option value="2018">2018</option>
+                                <option value="2017">2017</option>
+                                <option value="2016">2016</option>
+                                <option value="2015">2015</option>
+                                <option value="2014">2014</option>
+                                <option value="2013">2013</option>
+                                <option value="2012">2012</option>
+                                <option value="2011">2011</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <label class="control-label">Gender</label>
+                            <select name="gender" id="gender" class="form-control">
+                                <option value="Male">Male</option>
+                                <option value="Fe-Male">Fe-Male</option>
+                                <option value="Both">For Both</option>
+                            </select>
+                        </div>
+                        <div class="col-md-5">
+                            <label class="control-label">Team Name</label>
+                            <input type="text" id="TeamName" name="TeamName" class="form-control" placeholder="Team Name">
+                            <div class="text-danger">
+                                <label class="" id="lblErrorForName"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="control-label">Search Enrollment</label>
+                            <input type="text" id="SearchEnrollment" class="form-control allownumericwithoutdecimal"
+                                   placeholder="Search Enrollment Number here..">
+                            <div class="text-danger">
+                                <label class="" id="lblSearchErrorForName"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="table-responsive" style="max-height: 250px !important;overflow: scroll;">
+                            <table class="table table-striped b-t text-small" id="tblDataForStudent">
+                                <thead>
+                                <tr>
+                                    <th width="20">
+                                        <input type="checkbox">
+                                    </th>
+                                    <th class="th-sortable" data-toggle="class" style="text-align: center">Student Name
+
+                                    </th>
+                                    <th style="text-align: center">Enrollment</th>
+                                    <th style="text-align: center">Email</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <!--data-dismiss="modal"-->
+                <!--<button type="submit" id="modalButton" class="btn btn-sm btn-default">Save</button>-->
+                <button type="button" id="modalButton" class="btn btn-sm btn-default">Save</button>
+                <!--<button type="button" class="btn btn-sm btn-primary" data-loading-text="Publishing...">Publish-->
+                <!--</button>-->
+            </div>
+        </div><!-- /.modal-content -->
+    </form>
+</div>

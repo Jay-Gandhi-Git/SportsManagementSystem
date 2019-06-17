@@ -1,0 +1,73 @@
+<section id="content" xmlns="">
+    <section class="main padder">
+        <div class="clearfix">
+            <h4><i class="fa fa-dashboard"></i>&nbsp;Dashboard</h4>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <section class="panel text-center">
+                            <div class="panel-body">
+                                <a class="btn btn-circle btn-facebook btn-lg">
+                                    <i class="fa fa-university"></i>
+                                </a>
+                                <div class="h4">INSTITUTES</div>
+                                <div class="line m-l m-r"></div>
+                                <h4 class="text-info" id="lblIns">
+                                    <strong></strong>
+                                </h4>
+                                <small>Admin</small>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="col-xs-6">
+                        <section class="panel text-center">
+                            <div class="panel-body">
+                                <a class="btn btn-circle btn-twitter btn-lg">
+                                    <i class="fa fa-futbol-o"></i>
+                                </a>
+                                <div class="h4">GAMES
+                                </div>
+                                <div class="line m-l m-r"></div>
+                                <h4 class="text-success" id="lblGms"><strong></strong></h4>
+                                <small>Admin</small>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+
+<script>
+    $(document).ready(function () {
+        $("#menu1").children().removeClass("active");
+        $("#menu1").children("#liDashboard").addClass("active");
+    });
+    $(document).ready(function () {
+        // alert("window load...");
+        $.ajax({
+            url: "/dashboardGetAjax",
+            cache: false,
+            method: "get",
+            success: function (data) {
+                if (data.success && data.ins != null && data.gms !=null) {
+                    // alert("MSG: " + data.ins+ " "+data.gms);
+                    $('#lblIns').text(data.ins);
+                    $('#lblGms').text(data.gms);
+                    alert('success');
+                }
+                //alert("Success:Id "+data.sessionData);
+
+            },
+            error: function (data) {
+                alert("Error in data : ");
+                // window.location.reload();
+                $('#name').text("Technical error !!");
+            }
+        });
+    });
+</script>

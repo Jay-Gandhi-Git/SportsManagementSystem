@@ -1,0 +1,80 @@
+<section id="content" xmlns="">
+    <section class="main padder">
+        <div class="clearfix">
+            <h4><i class="fa fa-dashboard"></i>&nbsp;Dashboard</h4>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <section class="panel text-center">
+                            <div class="panel-body">
+                                <a class="btn btn-circle btn-facebook btn-lg" href="/institute/students">
+                                    <i class="fa fa-graduation-cap"></i>
+                                </a>
+                                <div class="h4">STUDENTS</div>
+                                <div class="line m-l m-r"></div>
+                                <h4 class="text-info" id="lblSts">
+                                    <strong></strong>
+                                </h4>
+                                <small id="crd_Name1">Admin</small>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="col-xs-6">
+                        <section class="panel text-center">
+                            <div class="panel-body">
+                                <a class="btn btn-circle btn-twitter btn-lg" href="/institute/gameOrganize">
+                                    <i class="fa fa-futbol-o"></i>
+                                </a>
+                                <div class="h4">GAME ORGANIZED
+                                </div>
+                                <div class="line m-l m-r"></div>
+                                <h4 class="text-success" id="lblGmsOrganized"><strong></strong></h4>
+                                <small id="crd_Name2">Admin</small>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+
+<script>
+    $(document).ready(function () {
+        $("#menu1").children().removeClass("active");
+        $("#menu1").children("#liDashboard").addClass("active");
+    });
+    $(document).ready(function () {
+        // alert("window load...");
+        $.ajax({
+            url: "http://localhost:3000/institute/dashboardGetAjax",
+            cache: false,
+            method: "post",
+            success: function (data) {
+
+                if (data.success && data.totalStudent != null && data.totalGameOrganizes!=null) {
+                    // alert("MSG: " + data.ins+ " "+data.gms);
+                    $('#lblSts').text(data.totalStudent);
+                    $('#lblGmsOrganized').text(data.totalGameOrganizes);
+
+                    $('#crd_Name1').text(data.instittuteName);
+                    $('#crd_Name2').text(data.instittuteName);
+                    $('#userName').text(data.instittuteName);
+                    // alert('success');
+                }
+                else if(data.msg=="Session Expired")
+                {
+                    window.location.replace('/');
+                }
+            },
+            error: function (data) {
+                // alert("Error in data : ");
+                // // window.location.reload();
+                // $('#name').text("Technical error !!");
+            }
+        });
+    });
+</script>

@@ -1,0 +1,166 @@
+<section id="content">
+    <section class="main padder">
+        <div class="clearfix"><h4></h4></div>
+        <div class="row">
+            <div class="col-lg-12">
+                <section class="panel">
+                    <header class="panel-heading"><i class="fa fa-table"></i> Students List</header>
+                    <div class="panel-body">
+                        <div class="row text-small">
+                            <a class="btn btn-sm btn-info" data-toggle="modal" id="callingModalForm"
+                               href="#studentsForm"
+                               style="margin-left: 10px;">
+                                <i class="fa fa-fw fa-plus"></i> Add new Student
+                            </a>
+                        </div>
+                    </div>
+
+
+                    <div class="table-responsive">
+                        <table class="table table-striped b-t text-small" id="tblData">
+                            <thead>
+                            <tr>
+                                <th width="20">
+                                    <input type="checkbox">
+                                </th>
+                                <th class="th-sortable" data-toggle="class" style="text-align: center">Student Name
+
+                                </th>
+                                <th style="text-align: center">Enrollment</th>
+                                <th style="text-align: center">Email</th>
+                                <th style="text-align: center">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+
+                            </tr>
+                            <!--<tr>-->
+                            <!--<td>-->
+                            <!--<input type="checkbox" name="post[]" value="3"></td> <td>Formasa</td> <td>8c</td> <td>Jul 22, 2013</td> <td> <a href="#" data-toggle="class"><i class="fa fa-check fa-lg text-success text-active"></i><i class="fa fa-times fa-lg text-danger text"></i></a> </td> </tr> <tr> <td><input type="checkbox" name="post[]" value="4"></td> <td>Avatar system</td> <td>15c</td> <td>Jul 15, 2013</td> <td> <a href="#" class="active" data-toggle="class"><i class="fa fa-check fa-lg text-success text-active"></i><i class="fa fa-times fa-lg text-danger text"></i></a> </td> </tr> <tr> <td><input type="checkbox" name="post[]" value="4"></td> <td>Throwdown</td> <td>4c</td> <td>Jul 11, 2013</td> <td> <a href="#" class="active" data-toggle="class"><i class="fa fa-check fa-lg text-success text-active"></i><i class="fa fa-times fa-lg text-danger text"></i></a> </td> </tr> <tr> <td><input type="checkbox" name="post[]" value="5"></td> <td>Idrawfast</td> <td>4c</td> <td>Jul 7, 2013</td> <td> <a href="#" class="active" data-toggle="class"><i class="fa fa-check fa-lg text-success text-active"></i><i class="fa fa-times fa-lg text-danger text"></i></a> </td> </tr> <tr> <td><input type="checkbox" name="post[]" value="6"></td> <td>Formasa</td> <td>8c</td> <td>Jul 3, 2013</td> <td> <a href="#" class="active" data-toggle="class"><i class="fa fa-check fa-lg text-success text-active"></i><i class="fa fa-times fa-lg text-danger text"></i></a> </td> </tr> <tr> <td><input type="checkbox" name="post[]" value="7"></td> <td>Avatar system </b></td> <td>15c</td> <td>Jul 2, 2013</td> <td> <a href="#" class="active" data-toggle="class"><i class="fa fa-check fa-lg text-success text-active"></i><i class="fa fa-times fa-lg text-danger text"></i></a> </td> </tr> <tr> <td><input type="checkbox" name="post[]" value="8"></td> <td>Videodown</td> <td>4c</td> <td>Jul 1, 2013</td> <td> <a href="#" class="active" data-toggle="class"><i class="fa fa-check fa-lg text-success text-active"></i><i class="fa fa-times fa-lg text-danger text"></i></a> </td> </tr> </tbody>-->
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        </div>
+    </section>
+</section>
+
+
+<style>
+    .updateClass {
+
+    }
+
+    .deleteClass {
+
+    }
+</style>
+
+
+<script src="/javascripts/Admin/js/fuelux/fuelux.js"></script>
+<script src="/javascripts/Admin/js/underscore-min.js"></script> <!-- datatables -->
+<script src="/javascripts/Admin/js/datatables/jquery.dataTables.min.js"></script>
+<script src="/javascripts/Admin/js/select2/select2.min.js"></script>
+<script src="/javascripts/Admin/js/Validation/csvFileValidation.js"></script>
+<script src="/javascripts/Admin/js/AJAX/institudeStudents.js"></script>
+
+<div id="studentsForm" class="modal fade">
+    <form class="m-b-none" action="#" id="uploadForm">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" id="btnFormModal" data-dismiss="modal"><i
+                            class="fa fa-times"></i></button>
+                    <h4 class="modal-title" id="myModalLabel">Add your Students here</h4></div>
+
+                <div class="modal-body">
+                    <div class="text-danger">
+                        <label id="lblError"></label>
+                    </div>
+                    <div class="row" id="radioDivision">
+                        <div class="col-md-2">
+                            <label for="radio-one label_RadioBuuton"  style="margin-top: 10px;">Type</label>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="radio" name="DataStoreType" value="CSV" id="register_radio-one" class="form-radio" checked><label for="radio-one" class="label_RadioBuuton">&nbsp;CSV</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="radio" name="DataStoreType" value="Manual" id="register_radio-one" class="form-radio" ><label for="radio-one" class="label_RadioBuuton">&nbsp;Single Student</label>
+                        </div>
+                    </div>
+                    <div id="FormBlock">
+                        <div class="block">
+                            <label class="control-label">Name</label>
+                            <input type="text" id="studentsName" name="studentsName"
+                                   class="form-control" placeholder="Student Name">
+                            <div class="text-danger">
+                                <label class="" id="lblErrorForName"></label>
+                            </div>
+                        </div>
+                        <div class="block">
+                            <label class="control-label">Enrollment Number</label>
+                            <input type="number" class="form-control" name="studentsEnrollmentNumber"
+                                   id="studentsEnrollmentNumber"
+                                   placeholder="Student Enrollment Number">
+                            <div class="text-danger">
+                                <label class="" id="lblErrorForEnrollment"></label>
+                            </div>
+                        </div>
+                        <div class="block">
+                            <label class="control-label">Email</label>
+                            <input type="email" id="studentsEmail" name="studentsEmail" class="form-control" placeholder="Student Email">
+                            <div class="text-danger">
+                                <label class="" id="lblErrorForEmail"></label>
+                            </div>
+                        </div>
+                        <div class="block">
+                            <label class="control-label">Mobile Number</label>
+                            <input type="text" id="studentMobileNumber" name="studentMobileNumber" class="form-control"
+                                   placeholder="Student Mobile Number">
+                            <div class="text-danger">
+                                <label class="" id="lblErrorForMobile"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="CSVBlock">
+                        <div class="block">
+                            <label class="control-label">CSV</label>
+                            <div class="form-group">
+                                <div class="col-lg-9 media">
+                                    <div class="media-body">
+                                        <input type="file" name="st_file" id="st_file"  class="btn btn-sm btn-info m-b-small" accept="*.csv">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-danger">
+                                <label class="" id="lblErrorForFile"></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--<div class="block">-->
+                    <!--<label class="control-label">Content</label>-->
+                    <!--<textarea class="form-control" placeholder="Content" rows="5"></textarea>-->
+                    <!--</div>-->
+                    <!--<div class="checkbox"><label> <input type="checkbox"> Share with all memebers of first </label>-->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <!--data-dismiss="modal"-->
+                <button type="submit" id="modalButton" class="btn btn-sm btn-default">Save</button>
+
+                <!--<button type="button" class="btn btn-sm btn-primary" data-loading-text="Publishing...">Publish-->
+                <!--</button>-->
+            </div>
+
+        </div><!-- /.modal-content -->
+    </form>
+</div>
+
+
+
+
+
